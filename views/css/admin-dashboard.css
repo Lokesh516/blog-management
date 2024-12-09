@@ -1,0 +1,50 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Container */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Title */
+h1 {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Links */
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.link {
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.link:hover {
+    background-color: #45a049;
+}
+
+.link:active {
+    background-color: #3e8e41;
+}
