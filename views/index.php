@@ -1,6 +1,6 @@
 <?php
 require_once 'C:\Apache24\htdocs\blog-management\auth.php';
-checkUserAccess(); // Perform a general user access check
+checkAdminAccess(); // Perform a general user access check
 ?>
 
 <!DOCTYPE html>
