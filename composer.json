@@ -1,0 +1,20 @@
+{
+    "name": "vendor/project-name",
+    "description": "A brief description of your project",
+    "type": "project",
+    "require": {
+        "php": "^8.2",
+        "phpmailer/phpmailer": "v6.9.3"
+
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "echo 'Composer install complete!'"
+        ]
+    }
+}
