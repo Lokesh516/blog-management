@@ -23,6 +23,7 @@ class BlogController
     }
     public function createBlog()
     {
+        session_start(); 
         if (
             isset($_POST['title']) &&
             isset($_POST['content']) &&
@@ -31,6 +32,9 @@ class BlogController
             // Trim spaces from input
             $title = trim($_POST['title']);
             $content = trim($_POST['content']);
+            $author_id = $_SESSION['user_id']; 
+            $publish_date = date('Y-m-d H:i:s');
+
     
             // Validate title and content for invalid characters or patterns
             if (!preg_match("/^[a-zA-Z0-9 ]+$/", $title)) {
@@ -39,9 +43,9 @@ class BlogController
                 exit();
             }
     
-            if (!preg_match("/^[a-zA-Z0-9\s]+$/", $content)) {
+            if (!preg_match("/^[a-zA-Z0-9 .]+$/", $content)) {
                 http_response_code(400);
-                echo json_encode(["message" => "Content contains invalid characters. Only alphanumerics and spaces allowed."]);
+                echo json_encode(["message" => "Content contains invalid characters. Only alphanumerics,dots and spaces allowed."]);
                 exit();
             }
     
@@ -70,7 +74,7 @@ class BlogController
                     chmod($image_path, 0644);
     
                     // Save only the image name to the database
-                    $this->model->createBlog($title, $content, $image_name);
+                    $this->model->createBlog($title, $content, $author_id, $image_name,  $publish_date);
     
                     header("Content-Type: application/json");
                     echo json_encode(["message" => "Blog created successfully", "image" => $image_name]);

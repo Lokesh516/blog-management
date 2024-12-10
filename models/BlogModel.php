@@ -10,11 +10,10 @@ class BlogModel
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function createBlog($title, $content, $image)
-    {
+    public function createBlog($title, $content, $author_id, $image, $publish_date)    {
         global $conn;
-        $stmt = $conn->prepare("INSERT INTO posts (title, content, image) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $title, $content, $image);
+        $stmt = $conn->prepare("INSERT INTO posts (title, content, author_id, image, publish_date) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssss", $title, $content, $author_id, $image, $publish_date);
         return $stmt->execute();
     }
 
