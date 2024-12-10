@@ -122,6 +122,7 @@ function editBlog(id, title, content) {
   $("#blogId").val(id);
   $("#title").val(title);
   $("#content").val(content);
+  document.getElementById("formTitle").scrollIntoView({ behavior: "smooth" });
 }
 
 function resetForm() {

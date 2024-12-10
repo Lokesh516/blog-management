@@ -31,12 +31,12 @@ public function updateBlog($id, $title, $content, $image_path)
 
     if ($image_path) {
         $stmt = $conn->prepare(
-            "UPDATE blogs SET title = ?, content = ?, image_path = ? WHERE id = ?"
+            "UPDATE posts SET title = ?, content = ?, image = ? WHERE id = ?"
         );
         $stmt->bind_param("sssi", $title, $content, $image_path, $id);
     } else {
         $stmt = $conn->prepare(
-            "UPDATE blogs SET title = ?, content = ? WHERE id = ?"
+            "UPDATE posts SET title = ?, content = ? WHERE id = ?"
         );
         $stmt->bind_param("ssi", $title, $content, $id);
     }

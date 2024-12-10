@@ -110,58 +110,63 @@ class BlogController
 
     public function updateBlog($id)
     {
+        session_start(); 
         if (
             isset($_POST['title']) &&
             isset($_POST['content'])
         ) {
-            // Sanitize and trim inputs
+            // Trim spaces from input
             $title = trim($_POST['title']);
             $content = trim($_POST['content']);
+            $author_id = $_SESSION['user_id']; // Fetch the logged-in user ID
     
-            // Validate title and content
+            // Validate title and content for invalid characters or patterns
             if (!preg_match("/^[a-zA-Z0-9 ]+$/", $title)) {
                 http_response_code(400);
-                echo json_encode(["message" => "Invalid title. Only alphanumerics and spaces are allowed."]);
-                return;
+                echo json_encode(["message" => "Title contains invalid characters. Only alphanumerics and spaces allowed."]);
+                exit();
             }
     
-            if (!preg_match("/^[a-zA-Z0-9\s]+$/", $content)) {
+            if (!preg_match("/^[a-zA-Z0-9 .]+$/", $content)) {
                 http_response_code(400);
-                echo json_encode(["message" => "Invalid content. Only alphanumerics and spaces are allowed."]);
-                return;
+                echo json_encode(["message" => "Content contains invalid characters. Only alphanumerics, dots, and spaces allowed."]);
+                exit();
             }
     
-            $image_path = null;
+            $image_name = null;
             if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
                 $image = $_FILES['image'];
+    
                 if (
                     in_array($image['type'], ['image/jpeg', 'image/png', 'image/gif']) &&
                     $image['size'] <= 5000000
                 ) {
-                    $upload_dir = __DIR__ . '/../../uploads/';
+                    $upload_dir = __DIR__ . '/../uploads/';
+    
+                    // Ensure the directory exists
                     if (!file_exists($upload_dir)) {
                         mkdir($upload_dir, 0755, true);
                     }
     
-                    $image_path = $upload_dir . uniqid() . '-' . basename($image['name']);
+                    // Create a unique file name
+                    $image_name = uniqid() . '-' . basename($image['name']);
+                    $image_path = $upload_dir . $image_name;
     
+                    // Move uploaded file
                     if (!move_uploaded_file($image['tmp_name'], $image_path)) {
                         http_response_code(500);
                         echo json_encode(["message" => "Image upload failed"]);
                         return;
                     }
-    
-                    // Relative path to save in DB
-                    $image_path = '/uploads/' . basename($image_path);
                 } else {
                     http_response_code(400);
-                    echo json_encode(["message" => "Invalid image file"]);
+                    echo json_encode(["message" => "Invalid file type or size"]);
                     return;
                 }
             }
     
             // Call to Model for database update
-            if ($this->model->updateBlog($id, $title, $content, $image_path)) {
+            if ($this->model->updateBlog($id, $title, $content, $image_name)) {
                 header("Content-Type: application/json");
                 echo json_encode(["message" => "Blog updated successfully"]);
             } else {
@@ -173,6 +178,6 @@ class BlogController
             echo json_encode(["message" => "Missing required fields"]);
         }
     }
-    
 }
+    
 ?>
