@@ -8,7 +8,19 @@ class CommentsModel {
 
     public function getComments()
     {
-        $query = $this->db->prepare("SELECT * FROM comments");
+        $query = $this->db->prepare("SELECT 
+                                       com.*,
+                                       pos.image,
+                                       pos.title
+                                    FROM 
+                                       comments AS com
+                                    INNER JOIN 
+                                        posts AS pos 
+                                    ON 
+                                        com.post_id = pos.id
+                                    ORDER BY 
+                                        com.id DESC;
+                                    ");
         $query->execute();
         return $query->get_result()->fetch_all(MYSQLI_ASSOC);
     }
