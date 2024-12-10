@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="registration-container">
-        <h1>User Registration</h1>
+        <h1>Registration</h1>
         <form id="register-form">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" placeholder="Enter your username"  required>
