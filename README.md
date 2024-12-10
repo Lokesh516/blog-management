@@ -77,8 +77,15 @@ CREATE TABLE `posts` (
   CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`)
 );
 
-6. Start the server:
-   If you’re using XAMPP, WAMP, or another server, ensure the server is running and navigate to http://localhost/blog-management/views/Registration.php in your web browser.
+
+6. Start your local server environment (XAMPP, WAMP, MAMP, or others).
+
+Register & Login
+To get started, you can visit the following pages:
+
+Registration Page: http://localhost/blog-management/views/Registration.php
+Login Page: http://localhost/blog-management/views/login.php
+
 
 
 # sample data for users table:
