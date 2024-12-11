@@ -42,6 +42,7 @@ checkAdminAccess(); // Perform the admin access check
                     commentsHtml += `
                         <div class="comment">
                             <p><strong>Post ID:</strong> ${comment.post_id}</p>
+                            <p><strong>Title:</strong> ${comment.title}</p>
                             <p><strong>User:</strong> ${comment.user_name}</p>
                             <p><strong>Comment:</strong> ${comment.comment}</p>
                             <div class="actions">
