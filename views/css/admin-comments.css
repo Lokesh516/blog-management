@@ -1,0 +1,91 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Comment Section */
+.comments-section {
+    margin-top: 20px;
+}
+
+.comment {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: #f9f9f9;
+}
+
+.comment p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.comment .actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Buttons */
+button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.approve-btn {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.approve-btn:disabled {
+    background-color: #9E9E9E;
+    cursor: not-allowed;
+}
+
+.delete-btn {
+    background-color: #F44336;
+    color: #fff;
+}
+
+button:hover:not(:disabled) {
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    .comment {
+        padding: 10px;
+    }
+
+    button {
+        font-size: 12px;
+    }
+}

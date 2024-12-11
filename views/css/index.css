@@ -1,0 +1,110 @@
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+h1, h2 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"], textarea, input[type="file"], button {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#blogsContainer {
+  margin-top: 30px;
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 10px 0;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  align-items: center; /* Center-align content */
+}
+
+.blog-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin: 15px 0;
+  width: 500px;
+}
+
+.blog-card h3 {
+  margin: 10px 0 5px;
+  font-size: 1.5rem;
+  color: #333;
+  text-align: center;
+}
+
+.blog-card p {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.blog-card .buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.blog-card button {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .container {
+      padding: 10px;
+  }
+
+  .blog-card img {
+      width: 50%; /* Adjust image size for smaller screens */
+  }
+}
