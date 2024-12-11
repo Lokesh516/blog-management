@@ -8,12 +8,18 @@ $request_uri = $_SERVER['REQUEST_URI'];
 if ($method === 'GET') {
     $controller->fetchAllBlogs();
 } elseif ($method === 'POST') {
+    $method = $_SERVER['REQUEST_METHOD'];
+    $request_uri = $_SERVER['REQUEST_URI'];
+    $id=null;
+// Extract the ID from the URL path
+   if (preg_match('/\/update\/(\d+)$/', $request_uri, $matches)) {
+     $id = $matches[1];
+   } 
+   if($id) {
+    $controller->updateBlog($id);
+   } else {
     $controller->createBlog();
-} elseif ($method === 'PUT' && preg_match('/\/(\d+)$/', $request_uri, $matches)) {
-    // Parse PUT data
-    parse_str(file_get_contents("php://input"), $_PUT);
-    $_POST = $_PUT; // Map PUT data to $_POST for compatibility
-    $controller->updateBlog($matches[1]); // Update blog using ID
+   }
 } elseif ($method === 'DELETE' && preg_match('/\/(\d+)$/', $request_uri, $matches)) {
     $controller->deleteBlog($matches[1]);
 } else {
