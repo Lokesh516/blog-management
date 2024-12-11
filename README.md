@@ -93,9 +93,11 @@ Login Page: http://localhost/blog-management/views/login.php
 -- Admin's password: Admin@123
 -- User's password: User@123
 
- INSERT INTO users (username, email, password, is_admin, created_at, reset_token, token_created_at) VALUES ("Admin", "admin@gmail.com", "$2y$10$xQXfcTHRfKvoyVUoACgI4O5Lb8kpOm3Z.zllAAkteuzRb1QPhg6Qm", 1, "2024-12-10 12:24:46", "", "");
+ INSERT INTO users (username, email, password, is_admin, created_at) VALUES ("Admin", "admin@gmail.com", "$2y$10$xQXfcTHRfKvoyVUoACgI4O5Lb8kpOm3Z.zllAAkteuzRb1QPhg6Qm", 1, "2024-12-10 12:24:46");
 
- INSERT INTO users (username, email, password, is_admin, created_at, reset_token, token_created_at) VALUES ("User", "user@gmail.com", "$2y$10$4rRyd/g.aC7o0ZMt1W6CHeWalQoPWHo1UtXme2.KQwJT6CeQNa4vG", 0, "2024-12-10 12:33:43", "", "");
+ INSERT INTO users (username, email, password, is_admin, created_at) VALUES ("User",
+"user@gmail.com", "$2y$10$4rRyd/g.aC7o0ZMt1W6CHeWalQoPWHo1UtXme2.KQwJT6CeQNa4vG", 0, 
+"2024-12-10 12:33:43");
 
 
 # Sample data for posts table:
@@ -106,7 +108,7 @@ INSERT INTO posts (title, content, author_id, image, publish_date, created_at) V
 
 INSERT INTO posts (title, content, author_id, image, publish_date, created_at) VALUES ("Google Pixel 9 5G", "Compatible with Google Pixel 9 5G this ultra clear soft silicone case offers 360 shockproof protection Easy to install it flaunts your phones original look.", 1, "6757e6d56558f-Google Pixel 9 5G.png", "2024-12-10 06:59:33", "2024-12-10 12:29:33");
 
-INSERT INTO posts (title, content, author_id, image, publish_date, created_at) VALUES ("Poco X6 Pro 5G 512 GB", 1.5K 120Hz AMOLED display with Dolby Vision 68B colors 1800 nits brightness and Gorilla Glass Victus Powered by Snapdragon 7s Gen 2 up to 20GB RAM 64MP OIS triple camera 5100mAh battery with 67W fast charging and Android 13.", 1, "6757e71dc3810-Poco X6 Pro 5G.png", "2024-12-10 07:00:45", "2024-12-10 12:30:45");
+INSERT INTO posts (title, content, author_id, image, publish_date, created_at) VALUES ("Poco X6 Pro 5G 512 GB", "1.5K 120Hz AMOLED display with Dolby Vision 68B colors 1800 nits brightness and Gorilla Glass Victus Powered by Snapdragon 7s Gen 2 up to 20GB RAM 64MP OIS triple camera 5100mAh battery with 67W fast charging and Android 13.", 1, "6757e71dc3810-Poco X6 Pro 5G.png", "2024-12-10 07:00:45", "2024-12-10 12:30:45");
 
 INSERT INTO posts (title, content, author_id, image, publish_date, created_at) VALUES ("Nothing Phone 2a 5G", "Nothing Phone 2a 5G 6.7 AMOLED display 50MP OIS 50MP rear cameras 32MP front camera 8GB RAM 128GB storage Mediatek Dimensity 7200 Pro Glyph Interface 45W charging 100 percent  in 59 mins.", 1, "6757e76cb7582-Nothing Phone 2a 5G.png", "2024-12-10 07:02:04", "2024-12-10 12:32:04");
 

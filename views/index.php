@@ -93,10 +93,32 @@ $("#blogForm").on('submit', function(e) {
             fetchBlogs();
             resetForm();
         },
-        error: function() {
-            alert(blogId ? "Failed to update blog" : "Failed to create blog");
+        error: function(xhr) {
+          // Parse error message from the server response
+        let errorMessage = "An error occurred.";
+        if (xhr.responseJSON && xhr.responseJSON.message) {
+            errorMessage = xhr.responseJSON.message;
+        } else if (xhr.responseText) {
+            errorMessage = xhr.responseText;
+        } else if (xhr.status === 0) {
+            errorMessage = "Network error. Please check your connection.";
+        } else if (xhr.status === 404) {
+            errorMessage = "The requested resource was not found.";
+        } else if (xhr.status === 500) {
+            errorMessage = "Internal Server Error. Please try again later.";
         }
-    });
+
+        // Add specific messages for update vs create
+        if (blogId) {
+            errorMessage = errorMessage || "Failed to update blog.";
+        } else {
+            errorMessage = errorMessage || "Failed to create blog.";
+        }
+
+        alert(errorMessage);
+    }
+});
+       
 });
 
 
