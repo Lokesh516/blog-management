@@ -1,3 +1,4 @@
+
 # Blog Management System
 
 A dynamic blog management system built using **Core PHP**, **MySQL**, and **PHP Mailer**. This system allows users to manage blogs, view posts, comment on them, and provides an admin panel to manage users, comments, and posts.
@@ -124,3 +125,4 @@ INSERT INTO comments (post_id, user_name, comment, is_approved, created_at) VALU
 INSERT INTO comments (post_id, user_name, comment, is_approved, created_at) VALUES (2, "User", "This phone offers great value for money", 0, "2024-12-10 12:44:54");
 
 INSERT INTO comments (post_id, user_name, comment, is_approved, created_at) VALUES (1, "User", "A stylish device with impressive battery life", 0, "2024-12-10 12:45:19");
+
